@@ -19,7 +19,7 @@ def hello():
 @app.route('/api/autocomplete', methods=['GET', 'POST'])
 def autocomplete():
     if not request.is_json:
-        return jsonify({"error": 400, "message": "invalid json body"})
+        return jsonify({"error": 400, "message": "invalid json body"}), 400
 
     query = Product.objects(es_query={
         "query": {
@@ -35,7 +35,7 @@ def autocomplete():
 @app.route('/api/search', methods=['GET', 'POST'])
 def search():
     if not request.is_json:
-        return jsonify({"error": 400, "message": "invalid json body"})
+        return jsonify({"error": 400, "message": "invalid json body"}), 400
 
     body = request.get_json()
 
