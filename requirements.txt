@@ -1,0 +1,14 @@
+cassandra-driver==3.14.0
+click==6.7
+elasticsearch==6.2.0
+Flask==1.0.2
+itsdangerous==0.24
+Jinja2==2.10
+MarkupSafe==1.0
+numpy==1.14.3
+pandas==0.22.0
+python-dateutil==2.7.3
+pytz==2018.4
+six==1.11.0
+urllib3==1.22
+Werkzeug==0.14.1

@@ -1,0 +1,5 @@
+.idea
+elassandra-*
+resources/fr.openfoodfacts.org.products.csv
+.venv
+__pycache__
