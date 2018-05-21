@@ -47,11 +47,19 @@ def search():
                     "product_name": body.get('q', '')
                 }
             }
-        }
+        },
+        size=20
     )
 
     return jsonify(res)
 
+@app.route('/api/product', methods=['GET'])
+def product():
+    code = request.args.get('code', default = 1, type = int)
+    product = dict( Product.objects(code=code).first() )
+    product.pop('es_query', None)
+    return jsonify( product )
+
 
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=True, host="0.0.0.0")

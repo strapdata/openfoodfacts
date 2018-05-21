@@ -1,0 +1,23 @@
+version: "3.5"
+
+networks:
+  main:
+
+services:
+  meetup:
+    image: strapdata/meetup:0.1
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+    environment:
+      CRON_MINUTE: "20"
+    volumes:
+      - type: bind
+        source: /etc/docker-context.sh
+        target: /etc/profile.d/docker-context.sh
+        read_only: true
+      - type: bind
+        source: /home/centos/.cassandra/cqlshrc
+        target: /root/.cassandra/cqlshrc
+        read_only: true

@@ -14,23 +14,25 @@ dtype = {
     'product_name': str
 }
 
-for df in pd.read_csv(os.path.join(RESOURCES_DIR, 'fr.openfoodfacts.org.products.csv'),
+for df in pd.read_csv('fr.openfoodfacts.org.products.csv',
                       delimiter='\t', encoding='utf-8', dtype=dtype, chunksize=500):
     print("transform")
     df = df.where((pd.notnull(df)), None)
     print("importing rows {} to {}".format(df.index.min(), df.index.max()))
-    batch = BatchQuery()
     for i, row in df.iterrows():
-        print(i, row['code'], row['url'], row['product_name'])
+        try:
+            print(i, row['code'], ";", row['url'], ";", row['product_name'])
 
-        if row['code'] is None or len(row['code'].strip()) == 0:
-            print("error with line {0} : code = '{1}'".format(i, row['code']))
-            continue
+            if row['code'] is None or len(row['code'].strip()) == 0:
+                print("error with line {0} : code = '{1}'".format(i, row['code']))
+                continue
 
-        product = Product.batch(batch).create(
-            code=row['code'],
-            url=row['url'],
-            product_name=row['product_name']
-        )
+            product = Product.create(
+                code=row['code'],
+                url=row['url'],
+                product_name=row['product_name']
+            )
+        except UnicodeEncodeError as err:
+            print("UnicodeEncode error: {}".format(err))
+
     print("executing batch for rows {} to {}".format(df.index.min(), df.index.max()))
-    batch.execute()

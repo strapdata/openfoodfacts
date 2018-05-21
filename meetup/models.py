@@ -23,9 +23,11 @@ class EsQuery(columns.Text):
 
 
 class Product(Model):
-    code = columns.Text(primary_key=True)
+    code = columns.BigInt(primary_key=True)
     url = columns.Text()
     product_name = columns.Text()
+    brands = columns.Text()
+    image_url = columns.Text()
     es_query = EsQuery()
 
     def to_dict(self):

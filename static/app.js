@@ -36,9 +36,10 @@ $(function(){
 
             html +=
                 '<tr>' +
-                    '<td>' + product.code + '</td>' +
-                    '<td>' + product.product_name + '</td>' +
-                    '<td><a href="' + product.url + '">' + product.url + '</a></td>' +
+                    '<td><a href="/api/product?code=' + product.code + '">' + product.code + '</a></td>' +
+                    '<td><a href="' + product.url + '">' + product.product_name + '</a></td>' +
+                    '<td>' + product.brands + '</td>' +
+                    '<td><img src="' + product.image_url + '" alt="' + product.image_url + '" width="75" height="75"></img></td>' +
                 '</tr>';
         }
 

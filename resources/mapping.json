@@ -29,15 +29,8 @@
   },
   "mappings": {
     "product": {
+      "discover":"^((?!product_name).*)",
       "properties": {
-        "code": {
-          "type": "keyword",
-          "cql_collection": "singleton"
-        },
-        "url": {
-          "type": "keyword",
-          "cql_collection": "singleton"
-        },
         "product_name": {
           "type": "text",
           "cql_collection": "singleton",

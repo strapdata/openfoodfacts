@@ -1,5 +1,11 @@
 .idea
 elassandra-*
 resources/fr.openfoodfacts.org.products.csv
+fr.openfoodfacts.org.products.csv
 .venv
+*.pyc
+
+# eclipse files
+.project
+.settings
 __pycache__

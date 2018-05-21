@@ -11,18 +11,13 @@ from meetup.models import Product
 from meetup import RESOURCES_DIR
 
 keyspace = 'meetup'
-endpoints = ['127.0.0.1']
+endpoints = ['LOCAL_ELASSANDRA_RPC']
 
-config_auth = None
-# auth = {
-#     'username': 'admin',
-#     'password': '-jnUTAMDtVkyhT_QXsAyYLWsEGXv50uq'
-# }
+#config_auth = None
+config_auth = { 'username': 'LOCAL_ELASSANDRA_LOGIN', 'password': 'LOCAL_ELASSANDRA_PASSWORD' }
 
 config_ssl = None
-# ssl = {
-#     'cacert': './cacert.pem'
-# }
+#config_ssl = { 'cacert': 'LOCAL_ELASSANDRA_CERTFILE' }
 
 already_loaded = False
 
@@ -48,7 +43,7 @@ def init():
 
     # Encryption configuration
     if config_ssl is not None:
-        ssl_options = {'ssl_version': ssl.PROTOCOL_TLSv1, 'ca_certs': config_ssl['cacert']}
+        ssl_options = {'ssl_version': ssl.PROTOCOL_TLSv1_2, 'ca_certs': config_ssl['cacert']}
         scheme = "https"
         ca_certs = config_ssl['cacert']
     else:
@@ -65,6 +60,7 @@ def init():
 
     # Synchronize cassandra schema
     management.create_keyspace_network_topology(keyspace, {'DC1': 1})
+    connection.execute(open(os.path.join(RESOURCES_DIR, 'schema.cql')).read())
     management.sync_table(Product, keyspaces=[keyspace])
 
     # Connection to elasticsearch HTTP
