@@ -49,6 +49,9 @@ services:
       placement:
         constraints:
           - node.role == manager
+        replicas: 2
+          restart_policy:
+          condition: on-failure
       labels:
         traefik.backend: viz
         traefik.frontend.rule: "Host:viz.903403a9-617f-47ac-933e-537a73091e54.azure.strapcloud.com"
