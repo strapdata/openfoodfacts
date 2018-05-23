@@ -39,7 +39,7 @@ def search():
     body = request.get_json()
 
     res = es().search(
-        index="meetup",
+        index=database.keyspace,
         body={
             "query": {
                 "match": {
@@ -55,7 +55,7 @@ def search():
 
 @app.route('/api/product', methods=['GET'])
 def get_product():
-    code = request.args.get('code', default=1, type=int)
+    code = request.args.get('code', default=1, type=str)
     product = Product.objects(code=code).first().to_dict()
     return jsonify(product)
 
