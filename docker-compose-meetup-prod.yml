@@ -1,15 +1,21 @@
 version: "3.5"
 
 networks:
-  main:
+  traefik-net:
+    external: true
 
 services:
   meetup:
-    image: strapdata/meetup:0.1
+    image: strapdata/openfoodfacts:0.1
     deploy:
       replicas: 1
       restart_policy:
         condition: on-failure
+    labels:
+      traefik.backend: eladmin
+      traefik.frontend.rule: "Host:meetup.903403a9-617f-47ac-933e-537a73091e54.azure.strapcloud.com"
+      traefik.docker.network: traefik-net
+      traefik.port: 5000
     volumes:
       - type: bind
         source: /etc/docker-context.sh
@@ -19,3 +25,6 @@ services:
         source: /home/centos/.cassandra/cqlshrc
         target: /root/.cassandra/cqlshrc
         read_only: true
+    environment:
+      ELASSANDRA_LOAD_CQLSHRC: "true"
+

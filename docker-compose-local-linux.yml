@@ -5,7 +5,7 @@ networks:
 
 services:
   meetup:
-    image: strapdata/meetup:0.1
+    image: strapdata/openfoodfacts:0.1
     networks:
       - main
     ports:
