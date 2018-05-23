@@ -1,11 +1,13 @@
 #!/bin/bash
 
+if [ "$DEBUG" = "true" ]; then
+    set -x
+fi
+
 if [ "$ELASSANDRA_LOAD_CQLSHRC" = "true" ]; then
     export ELASSANDRA_LOGIN="$(awk '!/^#/ &&/username/ { print $3 }' /root/.cassandra/cqlshrc)"
     export ELASSANDRA_PASSWORD="$(awk '!/^#/ && /password/ { print $3 }' /root/.cassandra/cqlshrc)"
-    export ELASSANDRA_CERTFILE="$(awk '!/^#/ && /certfile/ { print $3 }' /root/.cassandra/cqlshrc)"
 fi
-
 
 # specific to strapcloud environment
 if [ -f "/etc/profile.d/docker-context.sh" ]; then
@@ -21,4 +23,4 @@ if [ "$DEBUG" = "true" ]; then
     env
 fi
 
-python3 -m meetup.web
+exec python3 -m meetup.web

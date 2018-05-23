@@ -56,8 +56,7 @@ def search():
 @app.route('/api/product', methods=['GET'])
 def get_product():
     code = request.args.get('code', default=1, type=int)
-    product = dict(Product.objects(code=code).first())
-    product.pop('es_query', None)
+    product = Product.objects(code=code).first().to_dict()
     return jsonify(product)
 
 
