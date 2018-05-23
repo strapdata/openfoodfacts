@@ -16,7 +16,7 @@ services:
         constraints:
           - node.role == manager
         replicas: 2
-          restart_policy:
+        restart_policy:
           condition: on-failure
       labels:
         traefik.backend: viz
