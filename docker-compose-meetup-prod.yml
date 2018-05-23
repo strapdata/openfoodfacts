@@ -11,11 +11,13 @@ services:
       replicas: 1
       restart_policy:
         condition: on-failure
-    labels:
-      traefik.backend: eladmin
-      traefik.frontend.rule: "Host:meetup.903403a9-617f-47ac-933e-537a73091e54.azure.strapcloud.com"
-      traefik.docker.network: traefik-net
-      traefik.port: 5000
+      labels:
+        traefik.backend: meetup
+        traefik.frontend.rule: "Host:meetup.903403a9-617f-47ac-933e-537a73091e54.azure.strapcloud.com"
+        traefik.docker.network: traefik-net
+        traefik.port: 5000
+    networks:
+      - traefik-net
     volumes:
       - type: bind
         source: /etc/docker-context.sh
@@ -25,6 +27,13 @@ services:
         source: /home/centos/.cassandra/cqlshrc
         target: /root/.cassandra/cqlshrc
         read_only: true
+      - type: bind
+        source: /etc/cassandra/cacert.pem
+        target: /cacert.pem
+        read_only: true
     environment:
+      ELASSANDRA_CERTFILE: "/cacert.pem"
       ELASSANDRA_LOAD_CQLSHRC: "true"
+      ELASSANDRA_RF: "2"
+      DEBUG: "true"
 
