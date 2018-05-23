@@ -37,23 +37,3 @@ services:
       ELASSANDRA_RF: "2"
       ELASSANDRA_KEYSPACE: "meetup2"
       DEBUG: "true"
-
-  # this is for swarm visualisation : visit http://machine-ip:8080
-  viz:
-    image: dockersamples/visualizer
-    volumes:
-      - "/var/run/docker.sock:/var/run/docker.sock"
-    networks:
-      - traefik-net
-    deploy:
-      placement:
-        constraints:
-          - node.role == manager
-        replicas: 2
-          restart_policy:
-          condition: on-failure
-      labels:
-        traefik.backend: viz
-        traefik.frontend.rule: "Host:viz.903403a9-617f-47ac-933e-537a73091e54.azure.strapcloud.com"
-        traefik.docker.network: traefik-net
-        traefik.port: 8080
