@@ -1,0 +1,23 @@
+version: "3.5"
+
+networks:
+  main:
+
+services:
+  meetup:
+    image: strapdata/meetup:0.1
+    networks:
+      - main
+    ports:
+      - "5000:5000"
+    environment:
+      ELASSANDRA_ENDPOINTS: 172.17.0.1
+
+  kibana:
+    image: docker.elastic.co/kibana/kibana-oss:6.2.3
+    networks:
+      - main
+    ports:
+      - "5601:5601"
+    environment:
+      ELASTICSEARCH_URL: http://172.17.0.1:9200

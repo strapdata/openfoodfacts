@@ -1,7 +1,6 @@
-import json
-
 from flask import Flask, render_template, request, jsonify
-from meetup import database, STATIC_DIR, TEMPLATES_DIR
+from meetup import database
+from meetup import STATIC_DIR, TEMPLATES_DIR
 from meetup.database import es
 from meetup.models import Product
 
@@ -53,12 +52,13 @@ def search():
 
     return jsonify(res)
 
+
 @app.route('/api/product', methods=['GET'])
-def product():
-    code = request.args.get('code', default = 1, type = int)
-    product = dict( Product.objects(code=code).first() )
+def get_product():
+    code = request.args.get('code', default=1, type=int)
+    product = dict(Product.objects(code=code).first())
     product.pop('es_query', None)
-    return jsonify( product )
+    return jsonify(product)
 
 
 if __name__ == '__main__':

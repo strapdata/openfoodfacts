@@ -1,14 +1,18 @@
 
+COMPOSE_FILE = docker-compose-local-linux.yml
+IMAGE_NAME= strapdata/openfoodfacts
+VERSION = 0.1
+
 all: build
 
 build:
-	docker build --rm -t "strapdata/meetup:0.1" .
+	docker build --rm -t "$(IMAGE_NAME):$(VERSION)" .
 
 publish: build
-	docker push strapdata/meetup:0.1
+	docker push $(IMAGE_NAME):$(VERSION)
 
 up:
-	docker-compose -f docker-compose-meetup-dev.yml up -d
+	docker-compose -f $(COMPOSE_FILE) up -d
 
 down:
-	docker-compose -f docker-compose-meetup-dev.yml down
+	docker-compose -f $(COMPOSE_FILE) down

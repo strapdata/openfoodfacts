@@ -12,30 +12,19 @@ services:
       - "5000:5000"
     volumes:
       - type: bind
-        source: ./docker-context.sh
-        target: /etc/profile.d/docker-context.sh
-        read_only: true
-      - type: bind
         source: /Users/vroyer/.cassandra/cqlshrc
         target: /root/.cassandra/cqlshrc
         read_only: true
+    environment:
+      ELASSANDRA_ENDPOINTS: "docker.for.mac.host.internal"
+      ELASSANDRA_LOAD_CQLSHRC: "true"
    
   kibana:
     image: docker.elastic.co/kibana/kibana-oss:6.2.3
-#    image: strapdata/strapcloud-kibana:6.2.3
     networks:
       - main
     ports:
       - "5601:5601"
-#    entrypoint:
-#      - "/bin/sh"
-#      - "-c"
-#      - ". /etc/profile.d/docker-context.sh; /docker-entrypoint.sh"
-    volumes:
-      - type: bind
-        source: ./docker-context.sh
-        target: /etc/profile.d/docker-context.sh
-        read_only: true
     environment:
       ELASTICSEARCH_URL: http://docker.for.mac.host.internal:9200
 #      elassandra_kibana_password: "kibana"

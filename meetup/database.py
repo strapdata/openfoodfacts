@@ -10,14 +10,24 @@ from elasticsearch import Elasticsearch
 from meetup.models import Product
 from meetup import RESOURCES_DIR
 
-keyspace = 'meetup'
-endpoints = ['LOCAL_ELASSANDRA_RPC']
+keyspace = os.environ.get('ELASSANDRA_KEYSPACE', 'meetup')
+endpoints = os.environ.get('ELASSANDRA_ENDPOINTS', '127.0.0.1').split(',')
 
-#config_auth = None
-config_auth = { 'username': 'LOCAL_ELASSANDRA_LOGIN', 'password': 'LOCAL_ELASSANDRA_PASSWORD' }
+config_auth = None
+if 'ELASSANDRA_LOGIN' in os.environ:
+    config_auth = {
+        'username': os.environ.get('ELASSANDRA_LOGIN'),
+        'password': os.environ.get('ELASSANDRA_PASSWORD')
+    }
+else:
+    config_auth = None
 
-config_ssl = None
-#config_ssl = { 'cacert': 'LOCAL_ELASSANDRA_CERTFILE' }
+if 'ELASSANDRA_CERTFILE' in os.environ:
+    config_ssl = {
+        'cacert': 'ELASSANDRA_CERTFILE'
+    }
+else:
+    config_ssl = None
 
 already_loaded = False
 
