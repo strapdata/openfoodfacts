@@ -11,8 +11,8 @@ fi
 if [ -f "/etc/profile.d/docker-context.sh" ]; then
     source "/etc/profile.d/docker-context.sh"
 fi
-if [ -n "$ELASSANDRA_LOCAL_RPC" ] && [ -z "$ELASSANDRA_ENDPOINTS" ]; then
-    export ELASSANDRA_ENDPOINTS="$ELASSANDRA_LOCAL_RPC"
+if [ -n "$LOCAL_ELASSANDRA_RPC" ] && [ -z "$ELASSANDRA_ENDPOINTS" ]; then
+    export ELASSANDRA_ENDPOINTS="$LOCAL_ELASSANDRA_RPC"
 fi
 
 export PYTHONPATH="/"
