@@ -8,7 +8,7 @@ services:
   meetup:
     image: strapdata/openfoodfacts:0.1
     deploy:
-      replicas: 1
+      replicas: 2
       restart_policy:
         condition: on-failure
       labels:
@@ -43,6 +43,8 @@ services:
     image: dockersamples/visualizer
     volumes:
       - "/var/run/docker.sock:/var/run/docker.sock"
+    networks:
+      - traefik-net
     deploy:
       placement:
         constraints:
