@@ -77,7 +77,6 @@ def init():
 
     # Synchronize cassandra schema
     management.create_keyspace_network_topology(keyspace, {'DC1': replication_factor})
-    connection.execute(open(os.path.join(RESOURCES_DIR, 'schema.cql')).read())
     management.sync_table(Product, keyspaces=[keyspace])
 
     # Connection to elasticsearch HTTP
@@ -86,7 +85,13 @@ def init():
                         http_auth=http_auth,
                         scheme=scheme,
                         port=9200,
-                        ca_certs=ca_certs)
+                        ca_certs=ca_certs,
+                        sniff_on_start=True,
+                        # refresh nodes after a node fails to respond
+                        sniff_on_connection_fail=True,
+                        # and also every 60 seconds
+                        #sniffer_timeout=60
+                        )
 
     # Create elasticsearch mapping
     # es.indices.delete(index=keyspace)
