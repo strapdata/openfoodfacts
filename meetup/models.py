@@ -23,7 +23,7 @@ class EsQuery(columns.Text):
 
 
 class Product(Model):
-    code = columns.BigInt(primary_key=True)
+    code = columns.Text(primary_key=True)
     url = columns.Text()
     product_name = columns.Text()
     brands = columns.Text()

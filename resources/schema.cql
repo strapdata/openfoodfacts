@@ -1,5 +1,5 @@
 CREATE TABLE IF NOT EXISTS meetup.product (
-"code" bigint PRIMARY KEY,
+"code" text PRIMARY KEY,
 "url" text,
 "creator" text,
 "created_t" timestamp,
