@@ -3,7 +3,7 @@ $(function(){
     function autocomplete(req, res) {
         return $.ajax({
             type: "POST",
-            url: "/api/autocomplete",
+            url: "/api/autocomplete_agg",
             contentType: "application/json; charset=utf-8",
             dataType: 'json',
             data: JSON.stringify({

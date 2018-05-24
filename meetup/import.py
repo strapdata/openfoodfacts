@@ -1,10 +1,8 @@
-import os
-import pandas as pd
-from cassandra.cqlengine.query import BatchQuery
 
+import pandas as pd
 from meetup import database
 from meetup.models import Product
-from meetup import RESOURCES_DIR
+
 
 database.init()
 

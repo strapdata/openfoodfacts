@@ -1,3 +1,5 @@
+import json
+
 from flask import Flask, render_template, request, jsonify
 from meetup import database
 from meetup import STATIC_DIR, TEMPLATES_DIR
@@ -29,6 +31,34 @@ def autocomplete():
     })
 
     return jsonify([p.product_name for p in query.limit(10)])
+
+
+@app.route('/api/autocomplete_agg', methods=['GET', 'POST'])
+def autocomplete_agg():
+    if not request.is_json:
+        return jsonify({"error": 400, "message": "invalid json body"}), 400
+
+    es_query = {
+        "size": 0,
+        "query": {
+            "match": {
+                "product_name.ngram": request.get_json().get('q', '')
+            }
+        },
+        "aggs": {
+            "product_name": {
+                "terms": {
+                    "field": "product_name.keyword",
+                    "size": 10
+                }
+            }
+        }
+    }
+
+    cql_query = "SELECT * FROM {}.product WHERE es_query='{}'".format(database.keyspace, json.dumps(es_query))
+    result = [row['product_name.key'] for row in database.cql().execute(cql_query)]
+
+    return jsonify(result)
 
 
 @app.route('/api/search', methods=['GET', 'POST'])

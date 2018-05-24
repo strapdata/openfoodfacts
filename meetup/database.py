@@ -37,10 +37,15 @@ else:
 already_loaded = False
 
 _es = None
+_cql = None
 
 
 def es():
     return _es
+
+
+def cql():
+    return _cql
 
 
 def init():
@@ -74,6 +79,8 @@ def init():
                      ssl_options=ssl_options,
                      load_balancing_policy=DCAwareRoundRobinPolicy(local_dc='DC1'),
                      retry_connect=True)
+    global _cql
+    _cql = connection.get_session()
 
     # Synchronize cassandra schema
     management.create_keyspace_network_topology(keyspace, {'DC1': replication_factor})
@@ -90,7 +97,7 @@ def init():
                         # refresh nodes after a node fails to respond
                         sniff_on_connection_fail=True,
                         # and also every 60 seconds
-                        #sniffer_timeout=60
+                        # sniffer_timeout=60
                         )
 
     # Create elasticsearch mapping
