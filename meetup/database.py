@@ -72,6 +72,7 @@ def init():
         ca_certs = None
 
     # Connection to cassandra
+    print("endpoints ", endpoints)
     connection.setup(endpoints,
                      default_keyspace=keyspace,
                      protocol_version=3,
@@ -93,7 +94,7 @@ def init():
                         scheme=scheme,
                         port=9200,
                         ca_certs=ca_certs,
-                        sniff_on_start=True,
+                        sniff_on_start=False,
                         # refresh nodes after a node fails to respond
                         sniff_on_connection_fail=True,
                         # and also every 60 seconds
