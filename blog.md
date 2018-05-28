@@ -48,7 +48,7 @@ Two things to note:
 
 That's good enough for our simple app.
 
-## Index your data
+## Index your data
 
 Now that we have seen the cassandra side of elassandra, we are going to show how to add an elasticsearch index upon the cassandra table.
 
@@ -143,8 +143,6 @@ For each route, we will use a different approach.
 
 This is the simplest query. It takes a product ean code and returns the product details :
 ```python
-from flask import request, jsonify
-
 @app.route('/api/product', methods=['GET'])
 def get_product():
     code = request.args.get('code', default="1", type=str)
