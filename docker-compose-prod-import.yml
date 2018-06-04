@@ -5,7 +5,7 @@ networks:
     external: true
 
 services:
-  meetup_import:
+  import:
     image: strapdata/openfoodfacts:0.2
     deploy:
       replicas: 1
@@ -26,11 +26,17 @@ services:
         source: /etc/cassandra/cacert.pem
         target: /cacert.pem
         read_only: true
+      - type: bind
+        source: ./fr.openfoodfacts.org.products.csv
+        target: /fr.openfoodfacts.org.products.csv
+        read_only: true
     environment:
       ELASSANDRA_CERTFILE: "/cacert.pem"
       ELASSANDRA_LOAD_CQLSHRC: "true"
-      ELASSANDRA_RF: "2"
+      ELASSANDRA_RF_MAP: '{"DC1": 2, "DC2": 1}'
+      ELASSANDRA_LOCAL_DC: "DC1"
       ELASSANDRA_KEYSPACE: "meetup2"
       DEBUG: "true"
       PYTHON_MODULE: "meetup.import"
-      CSV_PATH_OR_URL: "https://fr.openfoodfacts.org/data/fr.openfoodfacts.org.products.csv"
+      #CSV_PATH_OR_URL: "https://fr.openfoodfacts.org/data/fr.openfoodfacts.org.products.csv"
+      CSV_PATH_OR_URL: "/fr.openfoodfacts.org.products.csv"

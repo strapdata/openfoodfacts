@@ -34,6 +34,7 @@ services:
     environment:
       ELASSANDRA_CERTFILE: "/cacert.pem"
       ELASSANDRA_LOAD_CQLSHRC: "true"
-      ELASSANDRA_RF: "2"
+      ELASSANDRA_RF_MAP: '{"DC1": 2, "DC2": 1}'
+      ELASSANDRA_LOCAL_DC: "DC1"
       ELASSANDRA_KEYSPACE: "meetup2"
       DEBUG: "true"

@@ -21,5 +21,5 @@ logs:
 	docker-compose -f $(COMPOSE_FILE) logs
 
 shell:
-    docker-compose -f $(COMPOSE_FILE) exec web bash
+	docker-compose -f $(COMPOSE_FILE) exec web bash
 

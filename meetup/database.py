@@ -11,10 +11,13 @@ from elasticsearch import Elasticsearch
 from meetup.models import Product
 from meetup import RESOURCES_DIR
 
-endpoints = os.environ.get('ELASSANDRA_ENDPOINTS', '127.0.0.1').split(',')
+# import logging
+# logging.getLogger('cassandra').setLevel(logging.DEBUG)
 
+endpoints = os.environ.get('ELASSANDRA_ENDPOINTS', '127.0.0.1').split(',')
 keyspace = os.environ.get('ELASSANDRA_KEYSPACE', 'meetup')
-replication_factor = int(os.environ.get('ELASSANDRA_RF', 1))
+replication_map = json.loads(os.environ.get('ELASSANDRA_RF_MAP', '{"DC1": 1}'))
+local_dc = os.environ.get('ELASSANDRA_LOCAL_DC', 'DC1')
 
 config_auth = None
 if 'ELASSANDRA_LOGIN' in os.environ:
@@ -78,13 +81,13 @@ def init():
                      protocol_version=3,
                      auth_provider=auth_provider,
                      ssl_options=ssl_options,
-                     load_balancing_policy=DCAwareRoundRobinPolicy(local_dc='DC1'),
+                     load_balancing_policy=DCAwareRoundRobinPolicy(local_dc=local_dc),
                      retry_connect=True)
     global _cql
     _cql = connection.get_session()
 
     # Synchronize cassandra schema
-    management.create_keyspace_network_topology(keyspace, {'DC1': replication_factor})
+    management.create_keyspace_network_topology(keyspace, replication_map)
     management.sync_table(Product, keyspaces=[keyspace])
 
     # Connection to elasticsearch HTTP
