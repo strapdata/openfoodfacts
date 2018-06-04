@@ -4,14 +4,29 @@ networks:
   main:
 
 services:
-  meetup:
-    image: strapdata/openfoodfacts:0.1
+  web:
+    image: strapdata/openfoodfacts:0.2
     networks:
       - main
     ports:
       - "5000:5000"
     environment:
       ELASSANDRA_ENDPOINTS: 172.17.0.1
+
+  import:
+    image: strapdata/openfoodfacts:0.2
+    networks:
+      - main
+    environment:
+      ELASSANDRA_ENDPOINTS: 172.17.0.1
+      PYTHON_MODULE: "meetup.import"
+      # CSV_PATH_OR_URL: "https://fr.openfoodfacts.org/data/fr.openfoodfacts.org.products.csv"
+      CSV_PATH_OR_URL: "/fr.openfoodfacts.org.products.csv"
+    volumes:
+      - type: bind
+        source: "./fr.openfoodfacts.org.products.csv"
+        target: "/fr.openfoodfacts.org.products.csv"
+
 
   kibana:
     image: docker.elastic.co/kibana/kibana-oss:6.2.3

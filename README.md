@@ -4,31 +4,27 @@
 
 ## Standelone
 
-Get the Open Food Fact CSV :
-
-    wget https://fr.openfoodfacts.org/data/fr.openfoodfacts.org.products.csv -O fr.openfoodfacts.org.products.csv
-
 Install the dependencies:
 
     pip install -r requirements.txt
+    export PYTHONPATH="$(pwd)"
 
-Import the data:
+Import the data from Open Food Fact CSV:
 
+    wget https://fr.openfoodfacts.org/data/fr.openfoodfacts.org.products.csv -O fr.openfoodfacts.org.products.csv
     python3 -m meetup.import
 
-
 Start the web server:
-
+    
     python3 -m meetup.web
-
-
+    
 ## Dockerized 
 
 Build the docker image:
 
     make build
 
-Run a docker container including the application and kibana:
+Run a docker container including the application, the importer and kibana:
 
     make up
     
@@ -38,11 +34,11 @@ Stop the docker container:
 
 Check application logs:
 
-    docker logs pymeetup_meetup_1
+    make logs
 
-Run a bash in the docker container:
+Open a shell in the web container:
 
-    docker exec -it pymeetup_meetup_1 bash
+    make shell
     
 ## Usage
 
@@ -58,4 +54,3 @@ Run a bash in the docker container:
 * [Elassandra documentation](http://doc.elassandra.io/en/latest/enterprise.html#multi-user-kibana-configuration)
 * [Cassandra COPY CSV](https://docs.datastax.com/en/cql/3.3/cql/cql_reference/cqlshCopy.html)
 * [Configuring Kibana on Docker](https://www.elastic.co/guide/en/kibana/current/_configuring_kibana_on_docker.html)
-    

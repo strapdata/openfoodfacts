@@ -23,4 +23,4 @@ if [ "$DEBUG" = "true" ]; then
     env
 fi
 
-exec python3 -m meetup.web
+exec python3 -u -m $PYTHON_MODULE

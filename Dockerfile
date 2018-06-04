@@ -4,6 +4,7 @@ RUN apt-get update -y \
     && apt-get install -y python3-pip python3-dev build-essential \
     && rm -rf /var/lib/apt/lists/*
 
+ENV PYTHON_MODULE="meetup.web"
 
 WORKDIR /
 COPY ./requirements.txt /requirements.txt
@@ -17,5 +18,3 @@ COPY ./meetup/* /meetup/
 COPY ./resources/* /resources/
 COPY ./static/* /static/
 COPY ./templates/* /templates/
-
-

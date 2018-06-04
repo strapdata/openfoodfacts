@@ -1,7 +1,7 @@
 
 COMPOSE_FILE = docker-compose-local-linux.yml
 IMAGE_NAME= strapdata/openfoodfacts
-VERSION = 0.1
+VERSION = 0.2
 
 all: build
 
@@ -16,3 +16,10 @@ up:
 
 down:
 	docker-compose -f $(COMPOSE_FILE) down
+
+logs:
+	docker-compose -f $(COMPOSE_FILE) logs
+
+shell:
+    docker-compose -f $(COMPOSE_FILE) exec web bash
+

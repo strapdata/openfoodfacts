@@ -1,0 +1,36 @@
+version: "3.5"
+
+networks:
+  traefik-net:
+    external: true
+
+services:
+  meetup_import:
+    image: strapdata/openfoodfacts:0.2
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: none
+    networks:
+      - traefik-net
+    volumes:
+      - type: bind
+        source: /etc/docker-context.sh
+        target: /etc/profile.d/docker-context.sh
+        read_only: true
+      - type: bind
+        source: /home/centos/.cassandra/cqlshrc
+        target: /root/.cassandra/cqlshrc
+        read_only: true
+      - type: bind
+        source: /etc/cassandra/cacert.pem
+        target: /cacert.pem
+        read_only: true
+    environment:
+      ELASSANDRA_CERTFILE: "/cacert.pem"
+      ELASSANDRA_LOAD_CQLSHRC: "true"
+      ELASSANDRA_RF: "2"
+      ELASSANDRA_KEYSPACE: "meetup2"
+      DEBUG: "true"
+      PYTHON_MODULE: "meetup.import"
+      CSV_PATH_OR_URL: "https://fr.openfoodfacts.org/data/fr.openfoodfacts.org.products.csv"
