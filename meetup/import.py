@@ -1,5 +1,6 @@
 import os
 import traceback
+import types
 
 import pandas as pd
 import sys
@@ -12,23 +13,49 @@ from meetup.models import Product
 database.init()
 
 
-def dtype():
-    result = {}
-    cql_to_pd_types = {
+def int_or_none(s):
+    try:
+        x = int(s)
+        return x
+    except ValueError:
+        return None
+
+
+def list_of_text(s):
+    if len(s) == 0:
+        return []
+    else:
+        return [e.strip() for e in s.split(",")]
+
+
+def create_dtype_and_converters():
+    dtype, converters = {}, {}
+    cql_to_types_or_converters = {
         'text': str,
         'timestamp': int,
-        'double': float
+        'double': float,
+        'int': int_or_none,
+        'list<text>': list_of_text
     }
     for column_name, column in Product._columns.items():
         cql_column_name = column.db_field_name
         cql_type = column.db_type
-        pd_type = cql_to_pd_types[cql_type]
-        result[cql_column_name] = pd_type
-    return result
+        type_or_converter = cql_to_types_or_converters[cql_type]
+
+        if isinstance(type_or_converter, types.FunctionType):
+            converters[cql_column_name] = type_or_converter
+        else:
+            dtype[cql_column_name] = type_or_converter
+
+    return dtype, converters
+
+
+dtype, converters = create_dtype_and_converters()
 
 
 def import_csv(csv_path, batch=False, chucksize=500):
-    for df in pd.read_csv(csv_path, delimiter='\t', encoding='utf-8', dtype=dtype(), chunksize=chucksize):
+    for df in pd.read_csv(csv_path, delimiter='\t', encoding='utf-8', dtype=dtype, converters=converters,
+                          chunksize=chucksize):
         print("transform")
         df = df.where((pd.notnull(df)), None)
         print("importing rows {} to {}".format(df.index.min(), df.index.max()))
@@ -44,26 +71,27 @@ def import_csv(csv_path, batch=False, chucksize=500):
                     print("error with line {0} : code = '{1}'".format(i, row['code']))
                     continue
 
-                row_renamed = {
+                row_converted = {
                     Product._get_column_by_db_name(cql_name).column_name: value
                     for cql_name, value in row.items()
-                    if not cql_name.endswith('_datetime') and value is not None and (type(value) != str or len(value) > 0)
+                    if
+                    not cql_name.endswith('_datetime') and value is not None and (type(value) != str or len(value) > 0)
                 }
 
-                product = Product.create(**row_renamed)
+                product = Product.create(**row_converted)
 
                 if not batch:
                     product.save()
 
-            except UnicodeEncodeError as err:
-                print("UnicodeEncode error: {}".format(err))
+            except Exception as err:
                 exc_type, exc_value, exc_traceback = sys.exc_info()
                 traceback.print_exception(exc_type, exc_value, exc_traceback,
-                                          limit=10, file=sys.stdout)
+                                          limit=10, file=sys.stderr)
 
         if batch:
             print("executing batch for rows {} to {}".format(df.index.min(), df.index.max()))
             b.execute()
+
 
 if __name__ == '__main__':
     csv_path_or_url = os.environ.get('CSV_PATH_OR_URL', 'fr.openfoodfacts.org.products.csv')
