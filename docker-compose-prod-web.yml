@@ -6,7 +6,7 @@ networks:
 
 services:
   meetup:
-    image: strapdata/openfoodfacts:0.1
+    image: strapdata/openfoodfacts:0.2
     deploy:
       replicas: 2
       restart_policy:
