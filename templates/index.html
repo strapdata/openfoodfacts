@@ -1,29 +1,64 @@
+<!doctype html>
 <html>
-<head>
-    <title>Python Meetup</title>
+<head lang="en">
+    <title>{{ app_name }}</title>
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="./static/style.css">
 </head>
 <body>
-    <h1>Python Meetup</h1>
 
-    <input type="text" id="search-input"/>
 
-    <table id="search-results">
-        <tr>
-            <th>code</th>
-            <th>name</th>
-            <th>brands</th>
-            <th>image</th>
-        </tr>
-    </table>
+  <nav class="navbar navbar-dark bg-primary navbar-expand-lg sticky-top">
+    <a class="navbar-brand" href="#">{{ app_name }}</a>
+    <div class="form-inline w-50" >
+      <input type="search"  class="form-control w-100" style="border-radius: 0px" id="search-input" placeholder="Search" aria-label="Search"/>
+    </div>
+  </nav>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col">
+          <table class="table table-hover" id="search-results">
+              <thead class="">
+                <tr>
+                    <th>Code</th>
+                    <th>Name</th>
+                    <th>Brands</th>
+                    <th>Quantity</th>
+                    <th>Fat 100g</th>
+                    <th>Salt 100g</th>
+                    <th>Sugars 100g</th>
+                    <th>Proteins 100g</th>
+                    <th>Score</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
 
+    <!-- vendors javascript   -->
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"
             integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
             crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
             integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
             crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"></script>
+    <script src="./static/sammy-0.7.6.min.js"></script>
+
+    <!-- own javascript -->
     <script src="./static/app.js"></script>
 </body>
 </html>

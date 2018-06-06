@@ -42,3 +42,4 @@ services:
       PYTHON_MODULE: "meetup.import"
       #CSV_PATH_OR_URL: "https://fr.openfoodfacts.org/data/fr.openfoodfacts.org.products.csv"
       CSV_PATH_OR_URL: "/fr.openfoodfacts.org.products.csv"
+      #IMPORT_START_FROM: 224500

@@ -2,7 +2,7 @@ import json
 
 from flask import Flask, render_template, request, jsonify
 from meetup import database
-from meetup import STATIC_DIR, TEMPLATES_DIR
+from meetup import STATIC_DIR, TEMPLATES_DIR, global_context
 from meetup.database import es
 from meetup.models import Product
 
@@ -14,7 +14,7 @@ app = Flask(__name__,
 
 @app.route('/')
 def hello():
-    return render_template('index.html')
+    return render_template('index.html', **global_context)
 
 
 @app.route('/api/autocomplete', methods=['GET', 'POST'])

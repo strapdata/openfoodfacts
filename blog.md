@@ -7,9 +7,9 @@ For this purpose, we will build a simple web application that handles a catalog 
 
 We are not covering the installation and configuration of Elassandra. So we assume you already have an Elassandra instance running.
 
-There is no specific Elassandra driver for Python. We make use of the existing [cassandra]() or [elasticsearch]() drivers.
+There is no specific Elassandra driver for Python. We make use of the existing [cassandra](http://datastax.github.io/python-driver/index.html) or [elasticsearch](https://elasticsearch-py.readthedocs.io/en/master/) drivers.
 
-## Model your data
+## Modeling
 
 With the cassandra driver, we can model the data in the same way we would do with an ORM.
 
@@ -48,7 +48,7 @@ Two things to note:
 
 That's good enough for our simple app.
 
-## Index your data
+## Indexing
 
 Now that we have seen the cassandra side of elassandra, we are going to show how to add an elasticsearch index upon the cassandra table.
 
@@ -122,7 +122,7 @@ if not es.indices.exists(index=keyspace):
     es.indices.create(keyspace, json.loads(open('./mapping.json').read()))
 ```
 
-## Query your data
+## Querying
 
 We used Flask to create webservices serving the data from Elassandra.
 
@@ -208,7 +208,7 @@ es_query = {
 
 Furthermore, we are going to embed the elasticsearch query directly in the CQL statement.
 
-This option is only available in the [Elassandra Enterprise]() plugin.
+This option is only available in the [Elassandra Enterprise](http://elassandra.readthedocs.io/en/latest/enterprise.html) plugin.
 
 So the complete code of this route is :
 ```python
@@ -247,10 +247,7 @@ If you're interested testing this feature, we provide free 30-days trial.
 
 ## Finally
 
-We imported the data from a csv export of the opensource project [openfoodfact]().
+We imported the data from a csv export of the opensource project [openfoodfact](https://world.openfoodfacts.org/).
 
-The complete code, including HTML/CSS and jquery is available on [github]().
-
-
-
+The complete code, including HTML/CSS and jquery is available on [github](https://github.com/strapdata/openfoodfacts).
 

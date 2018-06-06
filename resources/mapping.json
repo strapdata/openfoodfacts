@@ -29,7 +29,7 @@
   },
   "mappings": {
     "product": {
-      "discover":"^((?!product_name).*)",
+      "discover":"^((?!product_name|additives|ingredients_text|first_packaging_code_geo).*|(additives_.*))",
       "properties": {
         "product_name": {
           "type": "text",
@@ -44,6 +44,14 @@
               "search_analyzer": "edge_ngram_search_analyzer"
             }
           }
+        },
+        "ingredients_text": {
+          "type": "text",
+          "cql_collection": "singleton"
+        },
+        "first_packaging_code_geo": {
+          "type": "geo_point",
+          "cql_collection": "singleton"
         }
       }
     }
