@@ -1,0 +1,47 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v2.json",
+  "mark": "point",
+  "data": {
+    "url": {
+      "index": "clustering",
+      "body": {
+        "size": 100,
+        "_source": [
+          "fat",
+          "proteins",
+          "salt",
+          "sugar",
+          "cluster"
+        ]
+      }
+    },
+    "format": {
+      "property": "hits.hits"
+    }
+  },
+  "encoding": {
+    "x": {
+      "field": "_source.proteins",
+      "type": "quantitative",
+      "scale": {
+        "type": "sqrt"
+      },
+      "axis": { "title": "proteins"}
+    },
+    "y": {
+      "field": "_source.sugar",
+      "type": "quantitative",
+      "scale": {
+        "type": "sqrt"
+      },
+      "axis": { "title": "sugar"}
+    },
+    "color": {
+      "field": "_source.cluster",
+      "type": "nominal",
+      "legend": {
+        "title": "cluster"
+      }
+    }
+  }
+}

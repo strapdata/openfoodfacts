@@ -1,0 +1,65 @@
+{
+  "data": {
+    "url": {
+      "index": "clustering",
+      "body": {
+        "size": 1000,
+        "_source": [
+          "fat",
+          "proteins",
+          "salt",
+          "sugar",
+          "cluster"
+        ]
+      }
+    },
+    "format": {
+      "property": "hits.hits"
+    }
+  },
+  "$schema": "https://vega.github.io/schema/vega-lite/v2.json",
+  "repeat": {
+    "row": [
+      "_source.proteins",
+      "_source.sugar",
+      "_source.fat",
+      "_source.salt"
+    ],
+    "column": [
+      "_source.salt",
+      "_source.fat",
+      "_source.sugar",
+      "_source.proteins"
+    ]
+  },
+  "spec": {
+    "mark": "point",
+    "encoding": {
+      "x": {
+        "field": {
+          "repeat": "column"
+        },
+        "type": "quantitative",
+        "scale": {
+          "type": "sqrt"
+        }
+      },
+      "y": {
+        "field": {
+          "repeat": "row"
+        },
+        "type": "quantitative",
+        "scale": {
+          "type": "sqrt"
+        }
+      },
+      "color": {
+        "field": "_source.cluster",
+        "type": "nominal",
+        "legend": {
+          "title": "cluster"
+        }
+      }
+    }
+  }
+}

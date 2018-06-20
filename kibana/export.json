@@ -1,0 +1,217 @@
+[
+  {
+    "_id": "cb79a270-6995-11e8-a047-59d7d65675be",
+    "_type": "dashboard",
+    "_source": {
+      "hits": 0,
+      "description": "",
+      "timeRestore": false,
+      "title": "clustering",
+      "version": 1,
+      "optionsJSON": "{\"darkTheme\":false,\"hidePanelTitles\":false,\"useMargins\":true}",
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"query\":{\"language\":\"lucene\",\"query\":\"\"},\"filter\":[],\"highlightAll\":true,\"version\":true}"
+      },
+      "panelsJSON": "[{\"panelIndex\":\"1\",\"gridData\":{\"x\":0,\"y\":0,\"w\":6,\"h\":3,\"i\":\"1\"},\"id\":\"3cb1d0d0-6995-11e8-a047-59d7d65675be\",\"type\":\"visualization\",\"version\":\"6.2.3\"},{\"panelIndex\":\"2\",\"gridData\":{\"x\":6,\"y\":0,\"w\":6,\"h\":3,\"i\":\"2\"},\"version\":\"6.2.3\",\"type\":\"visualization\",\"id\":\"c2c39000-6995-11e8-a047-59d7d65675be\"},{\"panelIndex\":\"3\",\"gridData\":{\"x\":0,\"y\":3,\"w\":8,\"h\":10,\"i\":\"3\"},\"version\":\"6.2.3\",\"type\":\"visualization\",\"id\":\"0bef75d0-7492-11e8-a047-59d7d65675be\"}]"
+    },
+    "_meta": {
+      "savedObjectVersion": 2
+    }
+  },
+  {
+    "_id": "cf76a330-69a1-11e8-a047-59d7d65675be",
+    "_type": "dashboard",
+    "_source": {
+      "hits": 0,
+      "timeFrom": "now-5y",
+      "timeTo": "now",
+      "refreshInterval": {
+        "display": "Off",
+        "value": 0,
+        "pause": false
+      },
+      "description": "",
+      "timeRestore": true,
+      "title": "TakeOff",
+      "version": 1,
+      "optionsJSON": "{\"darkTheme\":false,\"hidePanelTitles\":false,\"useMargins\":true}",
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"query\":{\"language\":\"lucene\",\"query\":\"Sardines\"},\"filter\":[],\"highlightAll\":true,\"version\":true}"
+      },
+      "panelsJSON": "[{\"panelIndex\":\"1\",\"gridData\":{\"x\":0,\"y\":8,\"w\":12,\"h\":8,\"i\":\"1\"},\"id\":\"b7a5d5f0-69a1-11e8-a047-59d7d65675be\",\"type\":\"visualization\",\"version\":\"6.2.3\"},{\"panelIndex\":\"2\",\"gridData\":{\"x\":0,\"y\":3,\"w\":12,\"h\":5,\"i\":\"2\"},\"embeddableConfig\":{\"mapZoom\":5,\"mapCenter\":[49.26780455063753,11.71142578125]},\"id\":\"6a89bbf0-69a2-11e8-a047-59d7d65675be\",\"type\":\"visualization\",\"version\":\"6.2.3\"},{\"panelIndex\":\"3\",\"gridData\":{\"x\":9,\"y\":0,\"w\":2,\"h\":3,\"i\":\"3\"},\"embeddableConfig\":{\"vis\":{\"colors\":{\"0.3 - 1.5\":\"#C15C17\"},\"defaultColors\":{\"0 - 0.3\":\"rgb(0,104,55)\",\"0.3 - 1.5\":\"rgb(255,255,190)\",\"1.5 - 1.9\":\"rgb(165,0,38)\"},\"legendOpen\":false}},\"id\":\"549f9390-69a3-11e8-a047-59d7d65675be\",\"type\":\"visualization\",\"version\":\"6.2.3\"},{\"panelIndex\":\"4\",\"gridData\":{\"x\":7,\"y\":0,\"w\":2,\"h\":3,\"i\":\"4\"},\"embeddableConfig\":{\"vis\":{\"colors\":{\"1.5 - 5\":\"#E0752D\"},\"defaultColors\":{\"0 - 1.5\":\"rgb(0,104,55)\",\"1.5 - 5\":\"rgb(255,255,190)\",\"5 - 6\":\"rgb(165,0,38)\"},\"legendOpen\":false}},\"id\":\"79deaeb0-69a4-11e8-a047-59d7d65675be\",\"type\":\"visualization\",\"version\":\"6.2.3\"},{\"panelIndex\":\"5\",\"gridData\":{\"x\":3,\"y\":0,\"w\":2,\"h\":3,\"i\":\"5\"},\"embeddableConfig\":{\"vis\":{\"colors\":{\"29 - 88\":\"#E0752D\"},\"defaultColors\":{\"0 - 29\":\"rgb(0,104,55)\",\"29 - 88\":\"rgb(255,255,190)\",\"88 - 100\":\"rgb(165,0,38)\"},\"legendOpen\":false}},\"id\":\"c50a1c40-69a3-11e8-a047-59d7d65675be\",\"type\":\"visualization\",\"version\":\"6.2.3\"},{\"panelIndex\":\"6\",\"gridData\":{\"x\":5,\"y\":0,\"w\":2,\"h\":3,\"i\":\"6\"},\"embeddableConfig\":{\"vis\":{\"colors\":{\"3 - 20\":\"#E0752D\"},\"defaultColors\":{\"0 - 3\":\"rgb(0,104,55)\",\"20 - 25\":\"rgb(165,0,38)\",\"3 - 20\":\"rgb(255,255,190)\"},\"legendOpen\":false}},\"id\":\"840f6850-69a6-11e8-a047-59d7d65675be\",\"type\":\"visualization\",\"version\":\"6.2.3\"},{\"panelIndex\":\"7\",\"gridData\":{\"x\":0,\"y\":0,\"w\":3,\"h\":3,\"i\":\"7\"},\"version\":\"6.2.3\",\"type\":\"visualization\",\"id\":\"85857110-69a7-11e8-a047-59d7d65675be\"}]"
+    },
+    "_meta": {
+      "savedObjectVersion": 2
+    }
+  },
+  {
+    "_id": "3cb1d0d0-6995-11e8-a047-59d7d65675be",
+    "_type": "visualization",
+    "_source": {
+      "description": "",
+      "uiStateJSON": "{\"vis\":{\"colors\":{\"0\":\"#7EB26D\",\"1\":\"#64B0C8\",\"2\":\"#BF1B00\",\"3\":\"#EAB839\"}}}",
+      "title": "cluster plot",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"c9750460-698b-11e8-a047-59d7d65675be\",\"filter\":[],\"query\":{\"query\":\"\",\"language\":\"lucene\"}}"
+      },
+      "visState": "{\"title\":\"cluster plot\",\"type\":\"line\",\"params\":{\"type\":\"line\",\"grid\":{\"categoryLines\":false,\"style\":{\"color\":\"#eee\"}},\"categoryAxes\":[{\"id\":\"CategoryAxis-1\",\"type\":\"category\",\"position\":\"bottom\",\"show\":true,\"style\":{},\"scale\":{\"type\":\"linear\"},\"labels\":{\"show\":false,\"truncate\":100},\"title\":{}}],\"valueAxes\":[{\"id\":\"ValueAxis-1\",\"name\":\"LeftAxis-1\",\"type\":\"value\",\"position\":\"left\",\"show\":true,\"style\":{},\"scale\":{\"type\":\"linear\",\"mode\":\"normal\"},\"labels\":{\"show\":true,\"rotate\":0,\"filter\":false,\"truncate\":100},\"title\":{\"text\":\"Max fat\"}}],\"seriesParams\":[{\"show\":\"true\",\"type\":\"line\",\"mode\":\"normal\",\"data\":{\"label\":\"Max fat\",\"id\":\"1\"},\"valueAxis\":\"ValueAxis-1\",\"drawLinesBetweenPoints\":false,\"showCircles\":true,\"lineWidth\":4.5}],\"addTooltip\":true,\"addLegend\":true,\"legendPosition\":\"right\",\"times\":[],\"addTimeMarker\":false,\"radiusRatio\":51},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"max\",\"schema\":\"metric\",\"params\":{\"field\":\"fat\"}},{\"id\":\"2\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"segment\",\"params\":{\"field\":\"code\",\"otherBucket\":false,\"otherBucketLabel\":\"Other\",\"missingBucket\":false,\"missingBucketLabel\":\"Missing\",\"size\":1000,\"order\":\"desc\",\"orderBy\":\"_term\"}},{\"id\":\"3\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"group\",\"params\":{\"field\":\"cluster\",\"otherBucket\":false,\"otherBucketLabel\":\"Other\",\"missingBucket\":false,\"missingBucketLabel\":\"Missing\",\"size\":12,\"order\":\"desc\",\"orderBy\":\"_term\"}}]}"
+    },
+    "_meta": {
+      "savedObjectVersion": 2
+    }
+  },
+  {
+    "_id": "c2c39000-6995-11e8-a047-59d7d65675be",
+    "_type": "visualization",
+    "_source": {
+      "description": "",
+      "uiStateJSON": "{\"vis\":{\"params\":{\"sort\":{\"columnIndex\":1,\"direction\":\"desc\"}}}}",
+      "title": "clustering table",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"c9750460-698b-11e8-a047-59d7d65675be\",\"filter\":[],\"query\":{\"query\":\"\",\"language\":\"lucene\"}}"
+      },
+      "visState": "{\"title\":\"clustering table\",\"type\":\"table\",\"params\":{\"perPage\":10,\"showPartialRows\":false,\"showMeticsAtAllLevels\":false,\"sort\":{\"columnIndex\":null,\"direction\":null},\"showTotal\":false,\"totalFunc\":\"sum\"},\"aggs\":[{\"id\":\"2\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"cluster\",\"otherBucket\":false,\"otherBucketLabel\":\"Other\",\"missingBucket\":false,\"missingBucketLabel\":\"Missing\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"3\",\"customLabel\":\"cluster\"}},{\"id\":\"3\",\"enabled\":true,\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"1\",\"enabled\":true,\"type\":\"avg\",\"schema\":\"metric\",\"params\":{\"field\":\"fat\",\"customLabel\":\"fat avg\"}},{\"id\":\"4\",\"enabled\":true,\"type\":\"avg\",\"schema\":\"metric\",\"params\":{\"field\":\"proteins\",\"customLabel\":\"proteins avg\"}},{\"id\":\"5\",\"enabled\":true,\"type\":\"avg\",\"schema\":\"metric\",\"params\":{\"field\":\"salt\",\"customLabel\":\"salt avg\"}},{\"id\":\"6\",\"enabled\":true,\"type\":\"avg\",\"schema\":\"metric\",\"params\":{\"field\":\"sugar\",\"customLabel\":\"sugar avg\"}}]}"
+    },
+    "_meta": {
+      "savedObjectVersion": 2
+    }
+  },
+  {
+    "_id": "b7a5d5f0-69a1-11e8-a047-59d7d65675be",
+    "_type": "visualization",
+    "_source": {
+      "description": "",
+      "uiStateJSON": "{\"vis\":{\"params\":{\"sort\":{\"columnIndex\":2,\"direction\":\"desc\"}}}}",
+      "title": "takeoff table",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"2958ddb0-68b1-11e8-a047-59d7d65675be\",\"filter\":[],\"query\":{\"query\":\"\",\"language\":\"lucene\"}}"
+      },
+      "visState": "{\"title\":\"takeoff table\",\"type\":\"table\",\"params\":{\"perPage\":10,\"showPartialRows\":false,\"showMeticsAtAllLevels\":false,\"sort\":{\"columnIndex\":null,\"direction\":null},\"showTotal\":false,\"totalFunc\":\"sum\"},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"min\",\"schema\":\"metric\",\"params\":{\"field\":\"created_t\",\"customLabel\":\"creation date\"}},{\"id\":\"2\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"code\",\"otherBucket\":false,\"otherBucketLabel\":\"Other\",\"missingBucket\":false,\"missingBucketLabel\":\"Missing\",\"size\":20,\"order\":\"desc\",\"orderBy\":\"_term\",\"customLabel\":\"ean\"}},{\"id\":\"3\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"product_name.keyword\",\"otherBucket\":false,\"otherBucketLabel\":\"Other\",\"missingBucket\":false,\"missingBucketLabel\":\"Missing\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"_term\",\"customLabel\":\"name\"}},{\"id\":\"4\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"brands\",\"otherBucket\":false,\"otherBucketLabel\":\"Other\",\"missingBucket\":false,\"missingBucketLabel\":\"Missing\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"_term\",\"customLabel\":\"brands\"}}]}"
+    },
+    "_meta": {
+      "savedObjectVersion": 2
+    }
+  },
+  {
+    "_id": "79deaeb0-69a4-11e8-a047-59d7d65675be",
+    "_type": "visualization",
+    "_source": {
+      "description": "",
+      "uiStateJSON": "{\"vis\":{\"defaultColors\":{\"0 - 1.5\":\"rgb(0,104,55)\",\"1.5 - 5\":\"rgb(255,255,190)\",\"5 - 6\":\"rgb(165,0,38)\"}}}",
+      "title": "Saturates",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"2958ddb0-68b1-11e8-a047-59d7d65675be\",\"filter\":[],\"query\":{\"query\":\"\",\"language\":\"lucene\"}}"
+      },
+      "visState": "{\"title\":\"Saturates\",\"type\":\"gauge\",\"params\":{\"type\":\"gauge\",\"addTooltip\":true,\"addLegend\":true,\"isDisplayWarning\":false,\"gauge\":{\"verticalSplit\":false,\"extendRange\":true,\"percentageMode\":false,\"gaugeType\":\"Arc\",\"gaugeStyle\":\"Full\",\"backStyle\":\"Full\",\"orientation\":\"vertical\",\"colorSchema\":\"Green to Red\",\"gaugeColorMode\":\"Labels\",\"colorsRange\":[{\"from\":0,\"to\":1.5},{\"from\":1.5,\"to\":5},{\"from\":5,\"to\":6}],\"invertColors\":false,\"labels\":{\"show\":false,\"color\":\"black\"},\"scale\":{\"show\":true,\"labels\":false,\"color\":\"#333\"},\"type\":\"meter\",\"style\":{\"bgWidth\":0.9,\"width\":0.9,\"mask\":false,\"bgMask\":false,\"maskBars\":50,\"bgFill\":\"#eee\",\"bgColor\":false,\"subText\":\"\",\"fontSize\":60,\"labelColor\":true}}},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"avg\",\"schema\":\"metric\",\"params\":{\"field\":\"saturated-fat_100g\",\"customLabel\":\"Saturates\"}}]}"
+    },
+    "_meta": {
+      "savedObjectVersion": 2
+    }
+  },
+  {
+    "_id": "840f6850-69a6-11e8-a047-59d7d65675be",
+    "_type": "visualization",
+    "_source": {
+      "description": "",
+      "uiStateJSON": "{\"vis\":{\"defaultColors\":{\"0 - 3\":\"rgb(0,104,55)\",\"3 - 20\":\"rgb(255,255,190)\",\"20 - 25\":\"rgb(165,0,38)\"}}}",
+      "title": "Fat",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"2958ddb0-68b1-11e8-a047-59d7d65675be\",\"filter\":[],\"query\":{\"query\":\"\",\"language\":\"lucene\"}}"
+      },
+      "visState": "{\"title\":\"Fat\",\"type\":\"gauge\",\"params\":{\"type\":\"gauge\",\"addTooltip\":true,\"addLegend\":true,\"isDisplayWarning\":false,\"gauge\":{\"verticalSplit\":false,\"extendRange\":true,\"percentageMode\":false,\"gaugeType\":\"Arc\",\"gaugeStyle\":\"Full\",\"backStyle\":\"Full\",\"orientation\":\"vertical\",\"colorSchema\":\"Green to Red\",\"gaugeColorMode\":\"Labels\",\"colorsRange\":[{\"from\":0,\"to\":3},{\"from\":3,\"to\":20},{\"from\":20,\"to\":25}],\"invertColors\":false,\"labels\":{\"show\":false,\"color\":\"black\"},\"scale\":{\"show\":true,\"labels\":false,\"color\":\"#333\"},\"type\":\"meter\",\"style\":{\"bgWidth\":0.9,\"width\":0.9,\"mask\":false,\"bgMask\":false,\"maskBars\":50,\"bgFill\":\"#eee\",\"bgColor\":false,\"subText\":\"\",\"fontSize\":60,\"labelColor\":true}}},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"avg\",\"schema\":\"metric\",\"params\":{\"field\":\"fat_100g\",\"customLabel\":\"Fat\"}}]}"
+    },
+    "_meta": {
+      "savedObjectVersion": 2
+    }
+  },
+  {
+    "_id": "85857110-69a7-11e8-a047-59d7d65675be",
+    "_type": "visualization",
+    "_source": {
+      "description": "",
+      "uiStateJSON": "{}",
+      "title": "Calories",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"2958ddb0-68b1-11e8-a047-59d7d65675be\",\"filter\":[],\"query\":{\"query\":\"\",\"language\":\"lucene\"}}"
+      },
+      "visState": "{\"title\":\"Calories\",\"type\":\"metric\",\"params\":{\"addTooltip\":true,\"addLegend\":false,\"type\":\"metric\",\"metric\":{\"percentageMode\":false,\"useRanges\":false,\"colorSchema\":\"Green to Red\",\"metricColorMode\":\"None\",\"colorsRange\":[{\"from\":0,\"to\":10000}],\"labels\":{\"show\":true},\"invertColors\":false,\"style\":{\"bgFill\":\"#000\",\"bgColor\":false,\"labelColor\":false,\"subText\":\"\",\"fontSize\":60}}},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"avg\",\"schema\":\"metric\",\"params\":{\"field\":\"energy_100g\",\"customLabel\":\"Calories kJ\"}}]}"
+    },
+    "_meta": {
+      "savedObjectVersion": 2
+    }
+  },
+  {
+    "_id": "6a89bbf0-69a2-11e8-a047-59d7d65675be",
+    "_type": "visualization",
+    "_source": {
+      "description": "",
+      "uiStateJSON": "{\"mapZoom\":6,\"mapCenter\":[47.754097979680026,3.5815429687500004]}",
+      "title": "takeoff map",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"2958ddb0-68b1-11e8-a047-59d7d65675be\",\"filter\":[],\"query\":{\"query\":\"\",\"language\":\"lucene\"}}"
+      },
+      "visState": "{\"title\":\"takeoff map\",\"type\":\"tile_map\",\"params\":{\"mapType\":\"Scaled Circle Markers\",\"isDesaturated\":false,\"addTooltip\":true,\"heatClusterSize\":1.9,\"legendPosition\":\"bottomright\",\"mapZoom\":2,\"mapCenter\":[0,0],\"wms\":{\"enabled\":false,\"options\":{\"format\":\"image/png\",\"transparent\":true},\"baseLayersAreLoaded\":{\"_c\":[],\"_s\":1,\"_d\":true,\"_v\":true,\"_h\":0,\"_n\":false},\"tmsLayers\":[{\"id\":\"road_map\",\"url\":\"https://tiles.maps.elastic.co/v2/default/{z}/{x}/{y}.png?elastic_tile_service_tos=agree&my_app_name=kibana&my_app_version=6.2.3\",\"minZoom\":0,\"maxZoom\":10,\"attribution\":\"<p>&#169; <a href=\\\"http://www.openstreetmap.org/copyright\\\">OpenStreetMap</a> contributors | <a href=\\\"https://www.elastic.co/elastic-maps-service\\\">Elastic Maps Service</a></p>&#10;\",\"subdomains\":[]},{\"maxZoom\":18,\"minZoom\":0,\"attribution\":\"\",\"url\":\"http://a.tile.openstreetmap.org/{z}/{x}/{y}.png\",\"id\":\"Tilemap layer in yml\"}],\"selectedTmsLayer\":{\"id\":\"road_map\",\"url\":\"https://tiles.maps.elastic.co/v2/default/{z}/{x}/{y}.png?elastic_tile_service_tos=agree&my_app_name=kibana&my_app_version=6.2.3\",\"minZoom\":0,\"maxZoom\":10,\"attribution\":\"<p>&#169; <a href=\\\"http://www.openstreetmap.org/copyright\\\">OpenStreetMap</a> contributors | <a href=\\\"https://www.elastic.co/elastic-maps-service\\\">Elastic Maps Service</a></p>&#10;\",\"subdomains\":[]}}},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"enabled\":true,\"type\":\"geohash_grid\",\"schema\":\"segment\",\"params\":{\"field\":\"first_packaging_code_geo\",\"autoPrecision\":true,\"isFilteredByCollar\":true,\"useGeocentroid\":true,\"precision\":4}}]}"
+    },
+    "_meta": {
+      "savedObjectVersion": 2
+    }
+  },
+  {
+    "_id": "c50a1c40-69a3-11e8-a047-59d7d65675be",
+    "_type": "visualization",
+    "_source": {
+      "description": "",
+      "uiStateJSON": "{\"vis\":{\"defaultColors\":{\"0 - 29\":\"rgb(0,104,55)\",\"29 - 88\":\"rgb(255,255,190)\",\"88 - 100\":\"rgb(165,0,38)\"},\"colors\":{\"8 - 15\":\"#E0752D\",\"5 - 15\":\"#E0752D\"},\"legendOpen\":true}}",
+      "title": "Sugar",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"2958ddb0-68b1-11e8-a047-59d7d65675be\",\"filter\":[],\"query\":{\"language\":\"lucene\",\"query\":\"\"}}"
+      },
+      "visState": "{\"title\":\"Sugar\",\"type\":\"gauge\",\"params\":{\"type\":\"gauge\",\"addTooltip\":true,\"addLegend\":true,\"isDisplayWarning\":false,\"gauge\":{\"verticalSplit\":false,\"extendRange\":true,\"percentageMode\":true,\"gaugeType\":\"Arc\",\"gaugeStyle\":\"Full\",\"backStyle\":\"Full\",\"orientation\":\"vertical\",\"colorSchema\":\"Green to Red\",\"gaugeColorMode\":\"Labels\",\"colorsRange\":[{\"from\":0,\"to\":5},{\"from\":5,\"to\":15},{\"from\":15,\"to\":17}],\"invertColors\":false,\"labels\":{\"show\":false,\"color\":\"black\"},\"scale\":{\"show\":true,\"labels\":false,\"color\":\"#333\"},\"type\":\"meter\",\"style\":{\"bgWidth\":0.9,\"width\":0.9,\"mask\":false,\"bgMask\":false,\"maskBars\":50,\"bgFill\":\"#eee\",\"bgColor\":false,\"subText\":\"\",\"fontSize\":60,\"labelColor\":true}}},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"avg\",\"schema\":\"metric\",\"params\":{\"field\":\"sugars_100g\",\"customLabel\":\"Sugar\"}}]}"
+    },
+    "_meta": {
+      "savedObjectVersion": 2
+    }
+  },
+  {
+    "_id": "549f9390-69a3-11e8-a047-59d7d65675be",
+    "_type": "visualization",
+    "_source": {
+      "description": "",
+      "uiStateJSON": "{\"vis\":{\"defaultColors\":{\"0 - 0.3\":\"rgb(0,104,55)\",\"0.3 - 1.5\":\"rgb(255,255,190)\",\"1.5 - 1.9\":\"rgb(165,0,38)\"}}}",
+      "title": "Salt",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"2958ddb0-68b1-11e8-a047-59d7d65675be\",\"filter\":[],\"query\":{\"query\":\"\",\"language\":\"lucene\"}}"
+      },
+      "visState": "{\"title\":\"Salt\",\"type\":\"gauge\",\"params\":{\"type\":\"gauge\",\"addTooltip\":true,\"addLegend\":true,\"isDisplayWarning\":false,\"gauge\":{\"verticalSplit\":false,\"extendRange\":true,\"percentageMode\":false,\"gaugeType\":\"Arc\",\"gaugeStyle\":\"Full\",\"backStyle\":\"Full\",\"orientation\":\"vertical\",\"colorSchema\":\"Green to Red\",\"gaugeColorMode\":\"Labels\",\"colorsRange\":[{\"from\":0,\"to\":0.3},{\"from\":0.3,\"to\":1.5},{\"from\":1.5,\"to\":1.9}],\"invertColors\":false,\"labels\":{\"show\":false,\"color\":\"black\"},\"scale\":{\"show\":true,\"labels\":false,\"color\":\"#333\"},\"type\":\"meter\",\"style\":{\"bgWidth\":0.9,\"width\":0.9,\"mask\":false,\"bgMask\":false,\"maskBars\":50,\"bgFill\":\"#eee\",\"bgColor\":false,\"subText\":\"\",\"fontSize\":60,\"labelColor\":true}}},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"avg\",\"schema\":\"metric\",\"params\":{\"field\":\"salt_100g\",\"customLabel\":\"Salt\"}}]}"
+    },
+    "_meta": {
+      "savedObjectVersion": 2
+    }
+  },
+  {
+    "_id": "0bef75d0-7492-11e8-a047-59d7d65675be",
+    "_type": "visualization",
+    "_source": {
+      "description": "",
+      "uiStateJSON": "{}",
+      "title": "matrix scatter plot",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{}"
+      },
+      "visState": "{\"title\":\"matrix scatter plot\",\"type\":\"vega\",\"params\":{\"spec\":\"{\\n  \\\"data\\\": {\\n    \\\"url\\\": {\\n      \\\"index\\\": \\\"clustering\\\",\\n      \\\"body\\\": {\\n        \\\"size\\\": 1000,\\n        \\\"_source\\\": [\\n          \\\"fat\\\",\\n          \\\"proteins\\\",\\n          \\\"salt\\\",\\n          \\\"sugar\\\",\\n          \\\"cluster\\\"\\n        ]\\n      }\\n    },\\n    \\\"format\\\": {\\n      \\\"property\\\": \\\"hits.hits\\\"\\n    }\\n  },\\n  \\\"$schema\\\": \\\"https://vega.github.io/schema/vega-lite/v2.json\\\",\\n  \\\"repeat\\\": {\\n    \\\"row\\\": [\\n      \\\"_source.proteins\\\",\\n      \\\"_source.sugar\\\",\\n      \\\"_source.fat\\\",\\n      \\\"_source.salt\\\"\\n    ],\\n    \\\"column\\\": [\\n      \\\"_source.salt\\\",\\n      \\\"_source.fat\\\",\\n      \\\"_source.sugar\\\",\\n      \\\"_source.proteins\\\"\\n    ]\\n  },\\n  \\\"spec\\\": {\\n    \\\"mark\\\": \\\"point\\\",\\n    \\\"encoding\\\": {\\n      \\\"x\\\": {\\n        \\\"field\\\": {\\n          \\\"repeat\\\": \\\"column\\\"\\n        },\\n        \\\"type\\\": \\\"quantitative\\\",\\n        \\\"scale\\\": {\\n          \\\"type\\\": \\\"sqrt\\\"\\n        }\\n      },\\n      \\\"y\\\": {\\n        \\\"field\\\": {\\n          \\\"repeat\\\": \\\"row\\\"\\n        },\\n        \\\"type\\\": \\\"quantitative\\\",\\n        \\\"scale\\\": {\\n          \\\"type\\\": \\\"sqrt\\\"\\n        }\\n      },\\n      \\\"color\\\": {\\n        \\\"field\\\": \\\"_source.cluster\\\",\\n        \\\"type\\\": \\\"nominal\\\",\\n        \\\"legend\\\": {\\n          \\\"title\\\": \\\"cluster\\\"\\n        }\\n      }\\n    }\\n  }\\n}\"},\"aggs\":[]}"
+    },
+    "_meta": {
+      "savedObjectVersion": 2
+    }
+  }
+]
